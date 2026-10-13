@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Даниэл Осипов — юмор, импровизация, публичные выступления</title>
-<meta name="description" content="Индивидуальное обучение: перестать бояться публики, стать интереснее и научиться шутить без подготовки. Первое выступление — через 2 недели.">
+<title>Даниэл Осипов — публичные выступления, харизма, импровизация</title>
+<meta name="description" content="Индивидуальное обучение: выступать без страха, удерживать внимание зала и влюблять людей в себя. Первое выступление без паники — через 2 недели.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet">
@@ -75,12 +75,13 @@ body::after{content:"";position:fixed;inset:-50%;pointer-events:none;z-index:100
 .hero .wrap{position:relative;z-index:2;width:100%}
 .hero-kicker{font-size:15px;color:var(--champagne);margin-bottom:36px;display:flex;align-items:center;gap:14px}
 .hero-kicker::before{content:"";width:40px;height:1px;background:var(--champagne)}
-.hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(48px,8.4vw,128px);line-height:.95;letter-spacing:-.02em;max-width:12ch}
+.hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(46px,7.6vw,116px);line-height:.95;letter-spacing:-.02em;max-width:12ch}
 .hero h1 .line{display:block;overflow:hidden;padding-bottom:.06em}
 .hero h1 .line > span{display:block;transform:translateY(105%);animation:rise 1.2s var(--ease) forwards;animation-play-state:paused}
 .ready .hero h1 .line > span,.ready .hero-bottom,.ready .seal{animation-play-state:running}
 .hero h1 .line:nth-child(2) > span{animation-delay:.12s}
-.hero h1 .line:nth-child(3) > span{animation-delay:.24s;font-style:italic;color:var(--champagne)}
+.hero h1 .line:nth-child(3) > span,.hero h1 .line:nth-child(4) > span{animation-delay:.24s;font-style:italic;color:var(--champagne)}
+.hero h1 .line:nth-child(4) > span{animation-delay:.36s}
 @keyframes rise{to{transform:translateY(0)}}
 .hero-bottom{display:grid;grid-template-columns:1.1fr 1fr;gap:48px;align-items:end;margin-top:64px;padding-top:36px;border-top:1px solid var(--line-dark);opacity:0;animation:fade 1s .7s var(--ease) forwards;animation-play-state:paused}
 
@@ -139,6 +140,8 @@ section{position:relative}
 
 /* ФОРМУЛА СТРАХА */
 .fear{background:var(--stone)}
+.fear .sec-head{grid-template-columns:1fr;justify-items:center;text-align:center;gap:18px;margin-bottom:56px}
+.fear .sec-head .h2{max-width:18ch}
 .formula{display:grid;grid-template-columns:auto auto auto auto auto;align-items:center;gap:clamp(12px,3vw,40px);justify-content:center;font-family:var(--serif);text-align:center;padding:40px 0 20px}
 .formula .term{font-size:clamp(30px,4.6vw,64px);line-height:1}
 .formula .term small{display:block;font-family:var(--sans);font-size:14px;color:var(--muted);margin-top:14px;line-height:1.4}
@@ -171,19 +174,41 @@ section{position:relative}
 .ba{background:var(--ink);color:var(--ivory)}
 .ba .sec-head .tag,.ba .lead{color:rgba(242,240,234,.6)}
 .ba .h2 em{color:var(--champagne)}
-.toggle{display:inline-flex;padding:5px;border:1px solid var(--line-dark);border-radius:100px;margin-bottom:48px;position:relative}
-.toggle button{all:unset;cursor:pointer;position:relative;z-index:2;padding:12px 30px;font-size:15px;border-radius:100px;transition:color .4s}
-.toggle button[aria-pressed="true"]{color:var(--ink)}
-.toggle .pill{position:absolute;top:5px;bottom:5px;left:5px;border-radius:100px;background:var(--champagne);transition:transform .5s var(--ease),width .5s var(--ease);z-index:1}
-.ba-list{list-style:none;border-top:1px solid var(--line-dark)}
-.ba-list li{display:grid;grid-template-columns:220px 1fr;gap:40px;padding:30px 0;border-bottom:1px solid var(--line-dark);align-items:baseline}
-.ba-list .k{font-size:14px;color:rgba(242,240,234,.5)}
-.ba-list .v{position:relative;min-height:1.3em;font-family:var(--serif);font-size:clamp(22px,2.4vw,30px);line-height:1.3}
-.ba-list .v span{display:block;transition:opacity .5s var(--ease),transform .5s var(--ease)}
-.ba-list .v .after{position:absolute;inset:0;opacity:0;transform:translateY(10px);color:var(--champagne)}
-.ba.show-after .ba-list .v .before{opacity:0;transform:translateY(-10px)}
-.ba.show-after .ba-list .v .after{opacity:1;transform:none}
-@media (max-width:640px){.ba-list li{grid-template-columns:1fr;gap:8px}}
+.ba-table{width:100%;border-collapse:collapse}
+.ba-table th{font-weight:400;text-align:left;padding:0 0 22px;font-size:14px;vertical-align:bottom}
+.ba-table th.h-before{color:rgba(242,240,234,.5)}
+.ba-table th.h-after{color:var(--champagne)}
+.ba-table th span{display:inline-flex;align-items:center;gap:10px}
+.ba-table th.h-after span::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--champagne)}
+.ba-table th.h-before span::before{content:"";width:8px;height:8px;border-radius:50%;border:1px solid rgba(242,240,234,.5)}
+.ba-table td{padding:28px 24px 28px 0;border-top:1px solid var(--line-dark);vertical-align:top}
+.ba-table tr:last-child td{border-bottom:1px solid var(--line-dark)}
+.ba-table .k{width:22%;font-size:14px;color:rgba(242,240,234,.5);padding-top:34px}
+.ba-table .b{width:36%;font-family:var(--serif);font-size:clamp(20px,2vw,26px);line-height:1.3;color:rgba(242,240,234,.55)}
+.ba-table .a{font-family:var(--serif);font-size:clamp(22px,2.2vw,28px);line-height:1.3;color:var(--champagne);position:relative;padding-left:44px}
+.ba-table .a::before{content:"";position:absolute;left:0;top:44px;width:24px;height:1px;background:var(--champagne);opacity:.6}
+.ba-table .a::after{content:"";position:absolute;left:18px;top:41px;width:6px;height:6px;border-top:1px solid var(--champagne);border-right:1px solid var(--champagne);transform:rotate(45deg);opacity:.6}
+.ba-table .lbl{display:none}
+.ba-table.in tbody tr{animation:rowIn .9s var(--ease) both}
+.ba-table.in tbody tr:nth-child(2){animation-delay:.08s}
+.ba-table.in tbody tr:nth-child(3){animation-delay:.16s}
+.ba-table.in tbody tr:nth-child(4){animation-delay:.24s}
+.ba-table.in tbody tr:nth-child(5){animation-delay:.32s}
+.ba-table.in tbody tr:nth-child(6){animation-delay:.4s}
+@keyframes rowIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@media (max-width:760px){
+  .ba-table thead{display:none}
+  .ba-table,.ba-table tbody,.ba-table tr,.ba-table td{display:block;width:auto}
+  .ba-table tr{border-top:1px solid var(--line-dark);padding:24px 0}
+  .ba-table tr:last-child{border-bottom:1px solid var(--line-dark)}
+  .ba-table td,.ba-table tr:last-child td{border:0;padding:0}
+  .ba-table .k,.ba-table .b,.ba-table .a{width:auto}
+  .ba-table .k{padding:0 0 14px}
+  .ba-table .b{margin-bottom:12px}
+  .ba-table .a{padding-left:0}
+  .ba-table .a::before,.ba-table .a::after{display:none}
+  .ba-table .lbl{display:block;font-family:var(--sans);font-size:12px;margin-bottom:4px;opacity:.7}
+}
 
 /* КАК ПРОХОДИТ — фазы */
 .process{background:var(--stone)}
@@ -192,6 +217,8 @@ section{position:relative}
 .phase-label{font-family:var(--serif);font-size:30px;font-style:italic;color:var(--muted)}
 .phase h3{font-family:var(--serif);font-weight:500;font-size:34px;line-height:1.15;margin-bottom:20px}
 .phase > div > p{color:#3a4440;max-width:60ch}
+.phase > div > p + p{margin-top:12px}
+.phase .phase-goal{margin-top:20px!important;padding-left:18px;border-left:2px solid var(--champagne);color:var(--ink);font-family:var(--serif);font-size:21px;line-height:1.35}
 .timeline{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:40px;counter-reset:t}
 .timeline li{counter-increment:t;padding:28px 24px 0 0;border-top:1px solid var(--ink);position:relative;font-size:15px;color:#3a4440}
 .timeline li::before{content:counter(t);position:absolute;top:-14px;left:0;width:28px;height:28px;border-radius:50%;background:var(--stone);border:1px solid var(--ink);display:grid;place-items:center;font-size:13px;color:var(--ink)}
@@ -220,8 +247,8 @@ section{position:relative}
 .portrait .ph{position:absolute;inset:0;display:grid;place-items:center;color:var(--muted);font-size:14px;text-align:center;padding:20px;border:1px dashed rgba(14,23,21,.25)}
 .portrait figcaption{position:absolute;left:20px;bottom:20px;background:var(--ivory);padding:10px 16px;font-size:13px;border-radius:2px}
 .about blockquote{font-family:var(--serif);font-size:clamp(28px,3vw,40px);line-height:1.2;margin:28px 0 36px;font-style:italic}
-.about-facts{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:28px 40px;border-top:1px solid var(--line);padding-top:32px}
-.about-facts b{display:block;font-family:var(--serif);font-weight:500;font-size:24px;line-height:1.2;margin-bottom:6px}
+.about-facts{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:28px 32px;border-top:1px solid var(--line);padding-top:32px}
+.about-facts b{display:block;font-family:var(--serif);font-weight:400;font-size:clamp(40px,4vw,54px);line-height:1;color:var(--ink);margin-bottom:10px;white-space:nowrap}
 .about-facts span{font-size:15px;color:var(--muted)}
 @media (max-width:860px){.about-grid{grid-template-columns:1fr;gap:48px}}
 
@@ -328,7 +355,7 @@ section{position:relative}
     <svg viewBox="0 0 120 120">
       <defs><path id="sealPath" d="M60,60 m-47,0 a47,47 0 1,1 94,0 a47,47 0 1,1 -94,0"/></defs>
       <g class="ring" id="sealRing">
-        <text><textPath href="#sealPath" textLength="292" lengthAdjust="spacing">ЮМОР • ИМПРОВИЗАЦИЯ • СЦЕНА •</textPath></text>
+        <text><textPath href="#sealPath" textLength="292" lengthAdjust="spacing">ХАРИЗМА • ВНИМАНИЕ • СЦЕНА •</textPath></text>
       </g>
       <circle class="core" cx="60" cy="60" r="34"/>
       <g class="core" stroke-linecap="round">
@@ -339,14 +366,15 @@ section{position:relative}
     </svg>
   </div>
   <div class="wrap">
-    <p class="hero-kicker">Тренер по юмору, импровизации и публичным выступлениям</p>
+    <p class="hero-kicker">Тренер по публичным выступлениям, импровизации и юмору</p>
     <h1>
       <span class="line"><span>Выходите</span></span>
       <span class="line"><span>к людям —</span></span>
-      <span class="line"><span>и смешите их</span></span>
+      <span class="line"><span>и влюбляйте</span></span>
+      <span class="line"><span>их в себя</span></span>
     </h1>
     <div class="hero-bottom">
-      <p>Индивидуальное обучение. Через две недели вы выступите с короткой речью, а в конце курса — ответите шуткой на вопрос из зала без подготовки.</p>
+      <p>Индивидуальное обучение. Через две недели вы выступите перед людьми без паники. К концу курса вы спокойно удерживаете внимание большого зала: вас слушают и не отвлекаются.</p>
       <div class="hero-actions">
         <a href="https://t.me/USERNAME" class="btn"><span>Пройти интервью</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a>
         <a href="#path" class="btn btn-ghost"><span>Как это работает</span></a>
@@ -368,7 +396,7 @@ section{position:relative}
   <div class="wrap">
     <div class="sec-head reveal">
       <p class="tag">С чего начинаем</p>
-      <h2 class="h2">Страх сцены — это два страха, <em>и оба лечатся</em></h2>
+      <h2 class="h2">Страх сцены — это два страха, <em>и обоими можно управлять</em></h2>
     </div>
     <div class="formula reveal" id="formula">
       <div class="term">Страх выступать</div>
@@ -377,7 +405,7 @@ section{position:relative}
       <div class="op">+</div>
       <div class="term">отвержение<small>«Меня не примут»</small></div>
     </div>
-    <p class="fear-note reveal">Мы разберём каждый по отдельности. Вы на своём опыте увидите: когда выходите к людям, ничего страшного не происходит.</p>
+    <p class="fear-note reveal">Оба страха нормальны, они есть у каждого. Мы разберём их по отдельности, и вы на своём опыте увидите: когда выходите к людям, ничего страшного не происходит.</p>
   </div>
 </section>
 
@@ -387,7 +415,7 @@ section{position:relative}
     <div class="path-grid">
       <aside class="path-sticky">
         <p class="tag" style="font-size:14px;color:var(--muted)">Путь к результату</p>
-        <h2 class="h2" style="margin-top:16px">Три шага от&nbsp;волнения до&nbsp;смеха в&nbsp;зале</h2>
+        <h2 class="h2" style="margin-top:16px">Три шага от&nbsp;волнения до&nbsp;аплодисментов из&nbsp;зала</h2>
         <div class="path-counter" aria-hidden="true"><span id="pathNum">1</span><small>/3</small></div>
         <div class="path-rail" aria-hidden="true"><i id="pathRail"></i></div>
       </aside>
@@ -395,26 +423,26 @@ section{position:relative}
       <div class="steps">
         <article class="step" data-step="1">
           <div class="mobile-num">1</div>
-          <h3>Перестать бояться выступать</h3>
-          <p>Страх выступать складывается из страха осуждения и страха отвержения. Мы снимем оба.</p>
-          <p>В итоге вы поймёте простую вещь: если выйти к людям и заговорить, с вами ничего не случится.</p>
-          <div class="result"><b>Итог шага</b><p>Вы выступаете перед знакомыми с речью на 2–3 минуты или публикуете разговорный рилс</p></div>
+          <h3>Выступления перестают пугать</h3>
+          <p>Страх выступать складывается из страха осуждения и страха отвержения. Мы разберём оба, и вы увидите: это нормальные страхи, ими можно управлять.</p>
+          <p>Если выйти к людям и заговорить, с вами ничего не случится. Вы поймёте это не из теории, а на своём опыте.</p>
+          <div class="result"><b>Итог шага</b><p>Любое публичное выступление перестаёт вызывать страх: не дрожит голос, не потеют ладони, в голове не пусто</p></div>
         </article>
 
         <article class="step" data-step="2">
           <div class="mobile-num">2</div>
-          <h3>Вас интересно слушать</h3>
-          <p>Хорошее выступление держится на спокойствии и харизме. Когда страх уходит, мы раскрываем вашу уникальность через юмор.</p>
-          <p>Чувство юмора люди ценят выше многих качеств: смешной человек находит подход к любому, его хотят слушать. Развиваем его по моим авторским методикам.</p>
-          <div class="result"><b>Итог шага</b><p>Вы выступаете 3–5 минут перед коллегами или незнакомыми людьми — и они смеются минимум над тремя шутками</p></div>
+          <h3>Вас слушают, не отвлекаясь</h3>
+          <p>Хорошее выступление держится на спокойствии и харизме. Когда страх уходит, мы раскрываем вашу уникальность — то, за что люди вас запоминают.</p>
+          <p>Один из главных инструментов здесь — юмор. Я учу пользоваться им так, чтобы он работал на вашу цель: держал внимание, снимал напряжение и располагал людей к вам.</p>
+          <div class="result"><b>Итог шага</b><p>Вы выступаете на публике и чувствуете, что управляете вниманием: вас слушают и не отвлекаются</p></div>
         </article>
 
         <article class="step" data-step="3">
           <div class="mobile-num">3</div>
-          <h3>Шутить на ходу, без подготовки</h3>
-          <p>Харизма начинает работать на вас: приняв свою уникальность, вы чувствуете себя на публике комфортно.</p>
-          <p>Тренируем импровизацию на специальных упражнениях. Ошибки и неожиданные моменты в переговорах, в диалоге или на сцене больше не выбивают из колеи — вы переводите их в юмор.</p>
-          <div class="result"><b>Итог шага</b><p>Вам задают вопрос из зала, вы отвечаете шуткой без подготовки — и люди смеются</p></div>
+          <h3>Харизма на максималках</h3>
+          <p>С помощью импровизации я научу вас действовать в любых непредсказуемых обстоятельствах. Неудобный вопрос, сбой, всё пошло не по сценарию — вы знаете, что делать, и выходите из ситуации победителем.</p>
+          <p>Ваша харизма становится инструментом, благодаря которому люди в вас влюбляются.</p>
+          <div class="result"><b>Итог шага</b><p>Вы удерживаете внимание аудитории, обыгрываете любую неожиданность — и зал отвечает аплодисментами</p></div>
         </article>
       </div>
     </div>
@@ -422,25 +450,24 @@ section{position:relative}
 </section>
 
 <!-- ДО / ПОСЛЕ
-     ЗАМЕНИТЬ: строки ниже — черновик по офферу. Каждая строка: тема, «до», «после». -->
+     ЗАМЕНИТЬ: строки таблицы — черновик по офферу. Каждая строка <tr>: тема, «до», «после». -->
 <section class="sec ba" id="ba">
   <div class="wrap">
     <div class="sec-head reveal">
       <p class="tag">Что меняется</p>
-      <h2 class="h2">Было и стало — <em>переключите и сравните</em></h2>
+      <h2 class="h2">Было и стало — <em>за время обучения</em></h2>
     </div>
-    <div class="toggle reveal" role="group" aria-label="Показать состояние">
-      <span class="pill" aria-hidden="true"></span>
-      <button type="button" aria-pressed="true" data-mode="before">До</button>
-      <button type="button" aria-pressed="false" data-mode="after">После</button>
-    </div>
-    <ul class="ba-list reveal" aria-live="polite">
-      <li><span class="k">Перед выступлением</span><span class="v"><span class="before">Дрожит голос, в голове пусто</span><span class="after">Спокойно выходите и получаете удовольствие</span></span></li>
-      <li><span class="k">В разговоре</span><span class="v"><span class="before">Придумываете остроумный ответ через час</span><span class="after">Шутите сразу, в моменте</span></span></li>
-      <li><span class="k">Неловкая пауза или ошибка</span><span class="v"><span class="before">Выбивает из колеи до конца встречи</span><span class="after">Становится поводом для смеха</span></span></li>
-      <li><span class="k">Внимание людей</span><span class="v"><span class="before">Слушают из вежливости</span><span class="after">Слушают, потому что интересно</span></span></li>
-      <li><span class="k">Вопрос из зала</span><span class="v"><span class="before">Паника и «давайте обсудим позже»</span><span class="after">Ответ с шуткой — и зал смеётся</span></span></li>
-    </ul>
+    <table class="ba-table reveal">
+      <thead><tr><th></th><th class="h-before"><span>До обучения</span></th><th class="h-after"><span>После обучения</span></th></tr></thead>
+      <tbody>
+        <tr><td class="k">Перед выступлением</td><td class="b"><span class="lbl">До</span>Паника: дрожит голос, потеют ладони, в голове пусто</td><td class="a"><span class="lbl">После</span>Выходите спокойно и получаете удовольствие</td></tr>
+        <tr><td class="k">Внимание зала</td><td class="b"><span class="lbl">До</span>Слушают из вежливости и уходят в телефоны</td><td class="a"><span class="lbl">После</span>Слушают, не отвлекаясь, и ждут, что вы скажете дальше</td></tr>
+        <tr><td class="k">Когда всё идёт не по плану</td><td class="b"><span class="lbl">До</span>Сбиваетесь и теряете уверенность до конца выступления</td><td class="a"><span class="lbl">После</span>Обыгрываете ситуацию и выходите из неё победителем</td></tr>
+        <tr><td class="k">Как вас воспринимают</td><td class="b"><span class="lbl">До</span>Выступление забывают через пять минут</td><td class="a"><span class="lbl">После</span>Вас запоминают, к вам тянутся</td></tr>
+        <tr><td class="k">Ваше слово</td><td class="b"><span class="lbl">До</span>Ваши идеи проходят мимо, хотя они не хуже чужих</td><td class="a"><span class="lbl">После</span>К вашему мнению прислушиваются, вам доверяют проекты и деньги</td></tr>
+        <tr><td class="k">Финал выступления</td><td class="b"><span class="lbl">До</span>Вежливая тишина</td><td class="a"><span class="lbl">После</span>Аплодисменты</td></tr>
+      </tbody>
+    </table>
   </div>
 </section>
 
@@ -449,18 +476,18 @@ section{position:relative}
   <div class="wrap">
     <div class="sec-head reveal">
       <p class="tag">Как проходит обучение</p>
-      <h2 class="h2">Сначала план под вас, <em>потом практика</em></h2>
+      <h2 class="h2">Четыре фазы — <em>от интервью до аплодисментов</em></h2>
     </div>
 
     <div class="phase reveal">
       <div class="phase-label">Фаза 1</div>
       <div>
         <h3>Интервью и личный план</h3>
-        <p>Вы увидите, где находитесь сейчас и что именно будем улучшать. Уже это понимание запускает рост. По плану через две недели вы выступите с речью на 2–3 минуты.</p>
+        <p>До первого созвона вы отвечаете на вопросы интервью. Вы сами увидите, где находитесь сейчас и что мешает, — уже это запускает рост. По ответам я составляю чёткий план под ваши задачи.</p>
         <ol class="timeline">
           <li><b>Интервью</b>Отвечаете на вопросы до первого созвона</li>
-          <li><b>План</b>Составляю чёткий план под ваши задачи</li>
-          <li><b>Разбор</b>Отправляю план: вы видите, с чем работаем</li>
+          <li><b>План</b>Составляю план под ваши задачи и площадки</li>
+          <li><b>Разбор</b>Отправляю план: вы видите, с чем работаем и на каком вы этапе</li>
           <li><b>Первый созвон</b>Сверяем план и начинаем</li>
         </ol>
       </div>
@@ -469,24 +496,44 @@ section{position:relative}
     <div class="phase reveal">
       <div class="phase-label">Фаза 2</div>
       <div>
-        <h3>Прокачка юмора и импровизации</h3>
-        <p>Когда страх уходит, снимаются зажимы. Освободившееся место заполняем навыками: чувством юмора, скоростью мышления, импровизацией.</p>
+        <h3>Снимаем страх</h3>
+        <p>За несколько созвонов работаем с вашими страхами осуждения и отвержения по моим методикам. Я покажу, почему бояться невыгодно, и дам упражнения, которые помогают раскрываться. Зажимы уходят.</p>
+        <p class="phase-goal">Через две недели — первое выступление без паники: короткая речь перед людьми или разговорный рилс.</p>
+      </div>
+    </div>
+
+    <div class="phase reveal">
+      <div class="phase-label">Фаза 3</div>
+      <div>
+        <h3>Учимся держать внимание</h3>
+        <p>Освободившееся место заполняем навыками. Раскрываем вашу подачу и харизму, тренируем юмор как инструмент удержания внимания. Вы выступаете, а мы вместе разбираем, что сработало и что усилить.</p>
+        <p class="phase-goal">Вы выступаете на публике и чувствуете, что зал вас слушает.</p>
+      </div>
+    </div>
+
+    <div class="phase reveal">
+      <div class="phase-label">Фаза 4</div>
+      <div>
+        <h3>Импровизация и харизма</h3>
+        <p>Тренируем импровизацию на специальных упражнениях: неудобные вопросы, сбои, ситуации не по сценарию. Вы учитесь обыгрывать любую неожиданность так, чтобы она работала на вас.</p>
+        <p class="phase-goal">Финал — выступление, где вы держите внимание зала от начала до конца и уходите под аплодисменты.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ЧТО ВЫ ПОЛУЧИТЕ -->
+<!-- ЧТО ОСТАНЕТСЯ ПОСЛЕ ОБУЧЕНИЯ -->
 <section class="sec get">
   <div class="wrap">
     <div class="sec-head reveal">
-      <p class="tag">Что вы получите</p>
-      <h2 class="h2">Инструменты, которые останутся <em>с вами</em></h2>
+      <p class="tag">Ваш результат</p>
+      <h2 class="h2">Обучение закончится, <em>а это останется с вами</em></h2>
     </div>
     <ul class="get-list reveal">
-      <li><h3>Библиотека упражнений<span class="badge">доступ навсегда</span></h3><p>Упражнения на развитие чувства юмора и отдельный список — на скорость мышления.</p></li>
-      <li><h3>Техника работы со страхом</h3><p>Как быстро прорабатывать любые страхи и справляться с волнением перед выходом.</p></li>
-      <li><h3>Ответы на любые вопросы</h3><p>Спрашивайте всё, что приходит в голову по ходу обучения. Отвечу на каждый вопрос.</p></li>
+      <li><h3>Спокойствие перед выходом</h3><p>Вы умеете успокаиваться перед сценой, презентацией или важным разговором. Волнение больше не управляет вами.</p></li>
+      <li><h3>Победа в любой ситуации</h3><p>Неудобный вопрос, сбой, всё пошло не по плану — вы обыгрываете это и выходите победителем.</p></li>
+      <li><h3>Внимание аудитории</h3><p>Вы понимаете, как удерживать внимание людей долго: вас слушают и не отвлекаются.</p></li>
+      <li><h3>Харизма, к которой тянутся</h3><p>Вас запоминают и к вам прислушиваются — на сцене, на работе и в жизни.</p></li>
     </ul>
   </div>
 </section>
@@ -504,10 +551,9 @@ section{position:relative}
       <blockquote>Я хочу, чтобы вы перестали волноваться на публике и начали получать от этого удовольствие</blockquote>
       <p class="lead" style="color:#3a4440">Даниэл Осипов — профессиональный ведущий и стендап-комик. Ведёт мероприятия, где всё решается в моменте, поэтому импровизация — его основной рабочий инструмент. Работал с известными медийными людьми.</p>
       <ul class="about-facts" style="margin-top:36px">
-        <li><b>Ведущий</b><span>корпоративы, свадьбы, игровые форматы</span></li>
-        <li><b>Стендап-комик</b><span>выступает на сцене</span></li>
-        <li><b>Импровизация</b><span>основа его работы на площадке</span></li>
-        <li><b>Медийные проекты</b><span>работа с известными людьми</span></li>
+        <li><b>6 лет</b><span>на сцене</span></li>
+        <li><b>≈400</b><span>проведённых праздников</span></li>
+        <li><b>4 года</b><span>в юморе и импровизации</span></li>
       </ul>
     </div>
   </div>
@@ -547,7 +593,7 @@ section{position:relative}
     </div>
     <div class="price-grid">
       <div class="price-side reveal">
-        <p>Программа строится под вас после интервью: под ваш уровень, задачи и площадки, где вы выступаете.</p>
+        <p>Программа строится под вас после интервью: под ваш уровень, ваши цели и площадки, где вы выступаете.</p>
         <p>Если сомневаетесь, подходит ли вам обучение, напишите мне. Отвечу на вопросы до оплаты.</p>
       </div>
       <div class="price-card reveal">
@@ -555,11 +601,11 @@ section{position:relative}
         <p class="amount"><span class="num">00 000</span><span class="cur">₽</span></p>
         <p class="note">Полная стоимость курса</p>
         <ul>
-          <li>Интервью и личный план до первого созвона</li>
-          <li>Три шага: от страха сцены до шуток без подготовки</li>
-          <li>Библиотека упражнений на юмор и скорость мышления — навсегда</li>
-          <li>Техника работы со страхом и волнением</li>
-          <li>Ответы на любые вопросы по ходу обучения</li>
+          <li>Интервью и личный план под ваши задачи</li>
+          <li>Личное сопровождение: от первого созвона до финального выступления</li>
+          <li>Выступления без страха и паники</li>
+          <li>Умение держать внимание зала</li>
+          <li>Харизма и импровизация в любой ситуации</li>
         </ul>
         <a href="https://t.me/USERNAME" class="btn"><span>Пройти интервью</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a>
       </div>
@@ -576,8 +622,8 @@ section{position:relative}
     </div>
     <div class="faq-list reveal">
       <details>
-        <summary>Мне никогда не было смешно от своих шуток. Получится?<span class="pm" aria-hidden="true"></span></summary>
-        <div class="ans"><p>Чувство юмора — навык, его тренируют упражнениями, как скорость реакции. Начинаем с того уровня, на котором вы сейчас: его покажет интервью.</p></div>
+        <summary>Я не умею шутить. Мне подойдёт?<span class="pm" aria-hidden="true"></span></summary>
+        <div class="ans"><p>Да. Юмор здесь — инструмент, а не цель: он помогает держать внимание и располагать людей к себе. Его тренируют упражнениями, как скорость реакции. С какого уровня начинаем, покажет интервью.</p></div>
       </details>
       <details>
         <summary>Я не собираюсь на сцену. Мне это нужно?<span class="pm" aria-hidden="true"></span></summary>
@@ -585,7 +631,7 @@ section{position:relative}
       </details>
       <details>
         <summary>Когда будет первый результат?<span class="pm" aria-hidden="true"></span></summary>
-        <div class="ans"><p>По плану через две недели вы выступите с короткой речью на 2–3 минуты перед знакомыми людьми или опубликуете разговорный рилс.</p></div>
+        <div class="ans"><p>Через две недели вы выступите перед людьми без паники: с короткой речью или разговорным рилсом.</p></div>
       </details>
       <details>
         <summary>С чего начать?<span class="pm" aria-hidden="true"></span></summary>
@@ -599,7 +645,7 @@ section{position:relative}
 <section class="final" id="final">
   <div class="wrap">
     <h2>Первый шаг — <i>интервью</i></h2>
-    <p>Ответьте на вопросы, получите личный план и посмотрите, с чем будем работать. Затем — первый созвон.</p>
+    <p>Ответьте на вопросы, получите личный план и посмотрите, каким будет ваш путь от волнения до аплодисментов.</p>
     <span class="magnetic" id="magnetic"><a href="https://t.me/USERNAME" class="btn"><span>Пройти интервью</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a></span>
   </div>
 </section>
@@ -694,19 +740,6 @@ section{position:relative}
   }, {rootMargin:'-45% 0px -45% 0px'});
   document.querySelectorAll('.step').forEach(s => stepIO.observe(s));
 
-  // переключатель до / после
-  const ba = document.getElementById('ba');
-  const btns = ba.querySelectorAll('.toggle button');
-  const pill = ba.querySelector('.toggle .pill');
-  function setMode(btn){
-    btns.forEach(b => b.setAttribute('aria-pressed', b === btn));
-    pill.style.width = btn.offsetWidth + 'px';
-    pill.style.transform = 'translateX(' + (btn.offsetLeft - 5) + 'px)';
-    ba.classList.toggle('show-after', btn.dataset.mode === 'after');
-  }
-  btns.forEach(b => b.addEventListener('click', () => setMode(b)));
-  requestAnimationFrame(() => setMode(btns[0]));
-  addEventListener('resize', () => setMode(ba.querySelector('[aria-pressed="true"]')));
 
   // отзывы: стрелки + перетаскивание мышью
   const track = document.getElementById('rvTrack');
